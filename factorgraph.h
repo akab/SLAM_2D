@@ -1,8 +1,6 @@
 #ifndef FACTORGRAPH_H
 #define FACTORGRAPH_H
 
-#include <map>
-#include <unordered_map>
 #include <set>
 #include <cassert>
 #include <utility>
@@ -14,11 +12,8 @@
 class FactorGraph
 {
 private:
-
-//    std::unordered_map<int, Vertex*>  _verticesMap;
     std::vector<Vertex*> _vertices;
     std::set<Edge*>  _edges;
-//    std::vector<Edge*> _edges;
 
 
 public:

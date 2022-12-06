@@ -2,7 +2,7 @@
 #define EDGE_H
 
 #include "pose.h"
-#include "Eigen"
+#include "Eigen/Eigen"
 
 using namespace Eigen;
 

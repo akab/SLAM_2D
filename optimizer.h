@@ -2,7 +2,7 @@
 #define OPTIMIZER_H
 
 #include "factorgraph.h"
-#include "/home/valerio/SLAM_Project/SparseMatrix/SparseMatrix.h"
+//#include "/home/valerio/SLAM_Project/SparseMatrix/SparseMatrix.h"
 #include <iostream>
 #include <fstream>
 #include <Eigen/Dense>
@@ -33,7 +33,7 @@ protected:
     Matrix3d A;
     Matrix3d B;
 
-    SparseMatrix<double> createSparse();
+    //SparseMatrix<double> createSparse();
 //    Vector3d linear_factors(Edge* e);
     Vector3d linear_factors(Edge* e, MatrixXd vmeans, MatrixXd emeans, int k);
     Pose retrieveVertex(int id);

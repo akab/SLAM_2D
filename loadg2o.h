@@ -4,7 +4,7 @@
 #include "factorgraph.h"
 #include "vertex.h"
 #include "pose.h"
-#include "eigen3/Eigen/Core"
+#include "Eigen/Core"
 
 #include <string>
 #include <iostream>

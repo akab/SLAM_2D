@@ -11,33 +11,33 @@ MatrixXd v2m(FactorGraph graph);
 
 int main()
 {
-    char m;
-    cout << "maps: " << endl;
-    cout << "1 - killian.g2o " << endl;
-    cout << "2 - intel.g2o " << endl;
-    cout << "3 - manhattanOlson3500.g2o" << endl;
-    cout << "choose: ";
-    cin >> m;
+    //char m;
+    //cout << "maps: " << endl;
+    //cout << "1 - killian.g2o " << endl;
+    //cout << "2 - intel.g2o " << endl;
+    //cout << "3 - manhattanOlson3500.g2o" << endl;
+    //cout << "choose: ";
+    //cin >> m;
 
-    int nmap = m - '0';
+    //int nmap = m - '0';
 
     loadG2O g;
-    switch(nmap){
-    case 1:
-        g = loadG2O("/home/valerio/SLAM_Project/killian.g2o");
-        break;
-    case 2:
-        g = loadG2O("/home/valerio/SLAM_Project/intel.g2o");
-        break;
-    case 3:
-        g = loadG2O("/home/valerio/SLAM_Project/manhattanOlson3500.g2o");
-        break;
-    default:
-        cout << "wrong number!" << endl;
-        exit(0);
-    }
+    //switch(nmap){
+    //case 1:
+    //    g = loadG2O("data/killian.g2o");
+    //    break;
+    //case 2:
+        g = loadG2O("..\\data\\intel.g2o");
+    //    break;
+    //case 3:
+    //    g = loadG2O("data/manhattanOlson3500.g2o");
+    //    break;
+    //default:
+    //    cout << "wrong number!" << endl;
+    //    exit(0);
+    //}
 
-    cin.clear();
+    //cin.clear();
     FactorGraph graph = g.getGraph();
 
 

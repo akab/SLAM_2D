@@ -95,24 +95,24 @@ void sparsePrint(SparseMatrix<double> mat){
       }
 }
 
-SparseMatrix<double> Optimizer::createSparse(){
-
-//    typedef Triplet<double> T;
-//    vector<T> tripletList;
-//    tripletList.reserve(_H.cols());
-//    for(int i = 0; i < _H.rows(); i++)
-//    {
-//        for(int j = 0; j < _H.cols(); j++){
-//            double vij = _H(i,j);
-//            tripletList.push_back(T(i,j,vij));
-//        }
-//    }
-//    SparseMatrix<double> H(_H.rows(),_H.cols());
-//    H.setFromTriplets(tripletList.begin(), tripletList.end());
-//    H.makeCompressed();
-
-//    return H;
-}
+//SparseMatrix<double> Optimizer::createSparse(){
+//
+////    typedef Triplet<double> T;
+////    vector<T> tripletList;
+////    tripletList.reserve(_H.cols());
+////    for(int i = 0; i < _H.rows(); i++)
+////    {
+////        for(int j = 0; j < _H.cols(); j++){
+////            double vij = _H(i,j);
+////            tripletList.push_back(T(i,j,vij));
+////        }
+////    }
+////    SparseMatrix<double> H(_H.rows(),_H.cols());
+////    H.setFromTriplets(tripletList.begin(), tripletList.end());
+////    H.makeCompressed();
+//
+////    return H;
+//}
 
 void Optimizer::updateMeans(MatrixXd means){
 
@@ -243,8 +243,8 @@ MatrixXd Optimizer::linearize_and_solve(MatrixXd vmeans,int k){
     _H.setFromTriplets(tripletList.begin(), tripletList.end());
     _H.makeCompressed();
 
-    printHessian(_H,k);
-    printB(_b,k);
+    //printHessian(_H,k);
+    //printB(_b,k);
 
     VectorXd dX;
 //    SparseMatrix<double> H = createSparse();
@@ -330,10 +330,10 @@ void Optimizer::writeOptGraph(MatrixXd newmeans){
 
     string name = "solution.g2o";
 
-    if (ifstream(name))
-    {
-         system("rm solution.g2o");
-    }
+    //if (ifstream(name))
+    //{
+    //     system("rm solution.g2o");
+    //}
 
     ofstream map;
     map.open(name);
@@ -343,8 +343,9 @@ void Optimizer::writeOptGraph(MatrixXd newmeans){
             map << "VERTEX_SE2 " << i << " " << t(0) << " " << t(1) << " " << r.angle() << endl;
     }
 
-    for(std::set<Edge*>::iterator it = _graph.edges().begin(); it != _graph.edges().end(); it++){
-        Edge* e = *it;
+    //for(std::set<Edge*>::iterator it = _graph.edges().begin(); it != _graph.edges().end(); it++){
+    for (auto const it : _graph.edges()) {
+        Edge* e = it;
         Vector2d t = e->getTransf().translation();
         Rotation2Dd R = e->getTransf().rotation();
         Matrix3d inf = e->getInf();
@@ -354,7 +355,7 @@ void Optimizer::writeOptGraph(MatrixXd newmeans){
 
     map.close();
 
-    system("mv solution.g2o ~/SLAM_Project/");
+    //system("mv solution.g2o ~/SLAM_Project/");
 }
 
 Vector3d Optimizer::t2v(Matrix3d A){

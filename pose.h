@@ -1,7 +1,7 @@
 #ifndef POSE_H
 #define POSE_H
 
-#include "Eigen"
+#include "Eigen/Eigen"
 #include <cmath>
 #include <ctgmath>
 #include <iostream>
